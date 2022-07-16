@@ -1,0 +1,25 @@
+
+@authorization=Bearer AAAAAAAAAAAAAAAAAAAAAMNPewEAAAAAKn7ctCv1583l2jlcmbRjjv%2F5hPk%3DSpxMgSis3cUfKKuJxq1SQ6YPJ0GG3hxC0NdeTSJIt4ubK0YeUc
+
+###
+POST https://twitter.com/oauth2/token HTTP/1.1
+Host: api.twitter.com
+User-Agent: OnnaSoft
+Authorization: Basic 8ERSmrAXOI5e7UAOEILTi9RNu:vv0jUD0YLLB2kxbXoAIBUDiaXvJcKnbKM7wzo7GQuZrgkdr2sD
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+
+grant_type=client_credentials
+
+###
+GET https://api.twitter.com/2/users/by?usernames=twitterdev,twitterapi,adsapi&user.fields=created_at&expansions=pinned_tweet_id&tweet.fields=author_id,created_at
+Authorization: {{authorization}}
+
+###
+GET https://api.twitter.com/2/users/by?usernames=juliotorresmor4&user.fields=created_at&expansions=pinned_tweet_id&tweet.fields=author_id,created_at
+Authorization: {{authorization}}
+
+###
+GET https://api.twitter.com/2/tweets/search/recent?query=from:TwitterDev&tweet.fields=created_at&expansions=author_id&user.fields=created_at&max_results=100
+Authorization: {{authorization}}
+
+

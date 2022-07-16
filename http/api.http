@@ -1,0 +1,32 @@
+
+
+###
+GET http://localhost:8080/twitter/juliotorresmor4/profile
+
+###
+GET http://localhost:8080/twitter/TwitterDev/profile
+
+###
+GET http://localhost:8080/twitter/TwitterDev/tweets
+
+###
+GET http://localhost:8080/twitter/juliotorresmoreno4/profile
+
+###
+GET http://localhost:8080/twitter/TwitterDev/requests
+
+###
+GET http://localhost:8080/twitter/juliotorresmor4/requests
+
+###
+PATCH http://localhost:8080/twitter/juliotorresmor4/profile
+Content-Type: application/json
+
+{
+    "name": "Julio Torres"
+}
+
+###
+GET http://localhost:8080/twitter/juliotorresmor4/profile
+
+###

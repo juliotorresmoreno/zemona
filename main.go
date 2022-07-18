@@ -18,6 +18,7 @@ func main() {
 	mongo, err := db.NewConnectionMongo()
 	if err == nil {
 		db.PrepareBD(mongo)
+		db.PreloadData(mongo)
 		mongo.Disconnect(context.Background())
 	}
 

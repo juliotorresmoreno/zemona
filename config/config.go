@@ -14,6 +14,9 @@ type Config struct {
 	MongoDBUri      string
 	MongoDBDatabase string
 	RedisUri        string
+
+	Username string
+	Password string
 }
 
 func getValue(key string, defaultValue string) string {
@@ -35,6 +38,8 @@ func GetConfig() *Config {
 		MongoDBUri:          getValue("MONGODB_URI", ""),
 		MongoDBDatabase:     getValue("MONGODB_DATABASE", ""),
 		RedisUri:            getValue("REDIS_URI", ""),
+		Username:            getValue("PORTAL_USERNAME", ""),
+		Password:            getValue("PORTAL_PASSWORD", ""),
 	}
 
 	return c

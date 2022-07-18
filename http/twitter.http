@@ -22,4 +22,22 @@ Authorization: {{authorization}}
 GET https://api.twitter.com/2/tweets/search/recent?query=from:TwitterDev&tweet.fields=created_at&expansions=author_id&user.fields=created_at&max_results=100
 Authorization: {{authorization}}
 
+###
+POST /api/v1/session/ HTTP/1.0
+Connection: upgrade
+Host: localhost
+Accept: */*
+Referer: http://localhost/account
+Content-Type: application/json
+Origin: http://localhost
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
 
+{"username":"TwitterDev","password":"TwitterDev"}
+
+###
+GET /api/v1/session/ HTTP/1.0
+Connection: upgrade
+Host: localhost
+Authorization: ZLCtTMtTCoaNatyyiNKAReKJyiXJrscctNswYNsGRussVmaozFZBsbOJiFQGZsnw

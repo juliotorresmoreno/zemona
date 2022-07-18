@@ -19,14 +19,15 @@ GET http://localhost:8080/twitter/TwitterDev/requests
 GET http://localhost:8080/twitter/juliotorresmor4/requests
 
 ###
-PATCH http://localhost:8080/twitter/juliotorresmor4/profile
+PATCH http://localhost:8080/profile/juliotorresmor4
 Content-Type: application/json
 
 {
-    "name": "Julio Torres"
+    "name": "Julio Torres M",
+    "description": "sd"
 }
 
 ###
-GET http://localhost:8080/twitter/juliotorresmor4/profile
+GET http://localhost:8080/profile/juliotorresmor4
 
 ###

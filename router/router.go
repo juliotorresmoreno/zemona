@@ -18,12 +18,18 @@ func attach(prefix string, router *mux.Router, handler http.Handler, strip ...bo
 }
 
 func NewRouter() http.Handler {
+	api := mux.NewRouter().StrictSlash(true)
 	router := mux.NewRouter().StrictSlash(true)
 
+	router.Use(middlewares.Cors)
 	router.Use(middlewares.LoggerMiddleware)
 
-	attach("/twitter", router, controllers.NewTwitterController())
-	attach("/", router, controllers.NewHomeController(), false)
+	attach("/profile", api, controllers.NewProfileController())
+	attach("/twitter", api, controllers.NewTwitterController())
+	attach("/session", api, controllers.NewSessionController())
+	attach("/", api, controllers.NewHomeController(), false)
+
+	attach("/api/v1", router, api)
 
 	return router
 }

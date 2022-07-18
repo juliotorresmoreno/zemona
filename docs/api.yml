@@ -1,0 +1,34 @@
+---
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: Portafolio
+paths:
+  /session/:
+    get:
+      produces:
+        - application/json
+      operationId: getSession
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          required: true
+          description: Token obtenido en el login
+      responses:
+        200:
+          description: Permite obtener la session activa
+          
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The user ID.
+                  username:
+                    type: string
+                    description: The user name.
+
+

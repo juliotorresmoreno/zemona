@@ -45,3 +45,41 @@ func GetPostParams(r *http.Request) url.Values {
 	}
 	return url.Values{}
 }
+
+// Cors permite el acceso desde otro servidor
+func Cors(w http.ResponseWriter, r *http.Request) {
+	origin := r.Header.Get("Origin")
+	if origin == "" {
+		origin = "*"
+	}
+
+	w.Header().Set("Access-Control-Allow-Credentials", "true")
+	w.Header().Set("Access-Control-Allow-Origin", origin)
+	w.Header().Set("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Cache-Control")
+	w.Header().Set("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
+}
+
+func GetCookie(r *http.Request, name string) string {
+	var c string = r.Header.Get("Cookie")
+	var s []string = strings.Split(c, ";")
+	var t []string
+	for i := 0; i < len(s); i++ {
+		t = strings.Split(strings.Trim(s[i], " "), "=")
+		if t[0] == name {
+			return t[1]
+		}
+	}
+	return ""
+}
+
+// GetToken retorna el token
+func GetToken(r *http.Request) string {
+	var _token = r.URL.Query().Get("token")
+	if _token == "" {
+		_token = GetCookie(r, "token")
+	}
+	if _token == "" {
+		_token = r.Header.Get("authorization")
+	}
+	return _token
+}
